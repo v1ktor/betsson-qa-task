@@ -5,12 +5,14 @@ import { LoginPageValidator } from "./login-page.validator";
 
 export class LoginPage {
   private readonly page: Page;
+  private readonly browserContext: BrowserContext;
   private readonly selectors: LoginPageSelectors;
 
   public readonly validator: LoginPageValidator;
 
-  constructor(page: Page) {
+  constructor(page: Page, browserContext: BrowserContext) {
     this.page = page;
+    this.browserContext = browserContext;
     this.selectors = new LoginPageSelectors(page);
     this.validator = new LoginPageValidator(page);
   }
@@ -28,8 +30,8 @@ export class LoginPage {
     await this.selectors.buttonLogin.click();
   }
 
-  public async loginAs(user: LoginUser, browserContext: BrowserContext): Promise<void> {
-    await browserContext.addCookies([
+  public async loginAs(user: LoginUser): Promise<void> {
+    await this.browserContext.addCookies([
       {
         name: "session-username",
         value: user,

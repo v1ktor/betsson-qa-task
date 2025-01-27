@@ -1,8 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 
 export class LoginPageSelectors {
-  private readonly page: Page;
-
   public readonly inputUsername: Locator;
   public readonly inputPassword: Locator;
 
@@ -11,13 +9,11 @@ export class LoginPageSelectors {
   public readonly messageError: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    this.inputUsername = page.locator('input#user-name');
+    this.inputPassword = page.locator('input#password');
 
-    this.inputUsername = this.page.locator('input#user-name');
-    this.inputPassword = this.page.locator('input#password');
+    this.buttonLogin = page.locator('#login-button');
 
-    this.buttonLogin = this.page.locator('#login-button');
-
-    this.messageError = this.page.locator('[data-test=error]');
+    this.messageError = page.locator('[data-test=error]');
   }
 }
