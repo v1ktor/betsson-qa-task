@@ -34,10 +34,16 @@ export class CheckoutPageSelectors {
 
     this.itemInTheCart = page.locator("div[data-test='inventory-item']");
     this.itemTitle = page.locator("div[class='cart_item_label'] a");
-    this.itemDescription = page.locator("div[class='cart_item_label'] div[data-test='inventory-item-desc']");
+    this.itemDescription = page.locator(
+      "div[class='cart_item_label'] div[data-test='inventory-item-desc']",
+    );
 
-    this.labelPaymentInformationValue = page.locator("div.summary_value_label:nth-child(2)");
-    this.labelShippingInformationValue = page.locator("div.summary_value_label:nth-child(4)");
+    this.labelPaymentInformationValue = page.locator(
+      "div.summary_value_label:nth-child(2)",
+    );
+    this.labelShippingInformationValue = page.locator(
+      "div.summary_value_label:nth-child(4)",
+    );
     this.labelPriceTotalValue = page.locator("div[data-test='subtotal-label']");
     this.labelPriceTotalTaxValue = page.locator("div[data-test='tax-label']");
     this.labelTotal = page.locator("div[data-test='total-label']");

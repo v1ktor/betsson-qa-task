@@ -14,7 +14,11 @@ export class CheckoutPage {
     this.validator = new CheckoutPageValidator(page);
   }
 
-  public async fillCheckoutForm(args: { firstName: string, lastName: string, postalCode: string }): Promise<void> {
+  public async fillCheckoutForm(args: {
+    firstName: string;
+    lastName: string;
+    postalCode: string;
+  }): Promise<void> {
     await this.selectors.inputFirstName.fill(args.firstName);
     await this.selectors.inputLastName.fill(args.lastName);
     await this.selectors.inputZipCode.fill(args.postalCode);
@@ -30,7 +34,11 @@ export class CheckoutPage {
 
   public async navigateToCheckoutOverview(): Promise<void> {
     await this.page.goto("/checkout-step-one.html");
-    await this.fillCheckoutForm({firstName: "John", lastName: "Doe", postalCode: "12345"});
+    await this.fillCheckoutForm({
+      firstName: "John",
+      lastName: "Doe",
+      postalCode: "12345",
+    });
     await this.clickContinue();
   }
 }

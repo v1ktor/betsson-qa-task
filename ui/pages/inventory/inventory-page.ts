@@ -16,14 +16,16 @@ export class InventoryPage {
       ONESIE: this.selectors.buttonAddToCartOnesie,
       BACKPACK: this.selectors.buttonAddToCartBackpack,
       BIKE_LIGHT: this.selectors.buttonAddToCartBikeLight,
-      T_SHIRT_RED: this.selectors.buttonAddToCartTShirtRed
-    }
+      T_SHIRT_RED: this.selectors.buttonAddToCartTShirtRed,
+    };
 
     for (const product of products) {
       await buttonProduct[product].click();
     }
 
-    await expect(this.selectors.badgeShoppingCart).toHaveText(`${products.length}`);
+    await expect(this.selectors.badgeShoppingCart).toHaveText(
+      `${products.length}`,
+    );
   }
 
   public async goToCart(): Promise<void> {

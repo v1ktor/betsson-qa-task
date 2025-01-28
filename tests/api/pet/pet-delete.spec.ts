@@ -5,7 +5,7 @@ import { expect } from "@playwright/test";
 import { ErrorDto } from "../../../api/error/dto/error-dto";
 
 test.describe("PET DELETE", () => {
-  const PET_URL = '/v2/pet';
+  const PET_URL = "/v2/pet";
 
   let addedPet: PetDto;
 
@@ -18,9 +18,9 @@ test.describe("PET DELETE", () => {
     const { id } = addedPet;
     const expectedError: ErrorDto = {
       code: 1,
-      type: 'error',
-      message: 'Pet not found'
-    }
+      type: "error",
+      message: "Pet not found",
+    };
 
     let response = await apiRequest.delete(`${PET_URL}/${id}`);
     expect(response.status()).toBe(200);
@@ -32,11 +32,13 @@ test.describe("PET DELETE", () => {
     expect(actualError).toEqual(expectedError);
   });
 
-  test("404 is thrown if trying to delete non-existent pet", async ({ apiRequest }) => {
+  test("404 is thrown if trying to delete non-existent pet", async ({
+    apiRequest,
+  }) => {
     const fakeId = 0;
 
     const response = await apiRequest.delete(`${PET_URL}/${fakeId}`);
 
     expect(response.status()).toBe(404);
   });
-})
+});

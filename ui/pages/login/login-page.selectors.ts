@@ -9,11 +9,11 @@ export class LoginPageSelectors {
   public readonly messageError: Locator;
 
   constructor(page: Page) {
-    this.inputUsername = page.locator('input#user-name');
-    this.inputPassword = page.locator('input#password');
+    this.inputUsername = page.locator("input#user-name");
+    this.inputPassword = page.locator("input#password");
 
-    this.buttonLogin = page.locator('#login-button');
+    this.buttonLogin = page.locator("#login-button");
 
-    this.messageError = page.locator('[data-test=error]');
+    this.messageError = page.locator("[data-test=error]");
   }
 }

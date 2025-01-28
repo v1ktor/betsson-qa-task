@@ -1,10 +1,7 @@
-const LOGIN_USER = {
-  STANDARD_USER: "standard_user",
-  PROBLEM_USER: "problem_user",
-  PERFORMANCE_GLITCH_USER: "performance_glitch_user",
-  ERROR_USER: "error_user",
-  VISUAL_USER: "visual_user",
-  LOCKED_OUT_USER: "locked_out_user",
-} as const;
-
-export type LoginUser = typeof LOGIN_USER[keyof typeof LOGIN_USER];
+export type LoginUser =
+  | "standard_user"
+  | "problem_user"
+  | "performance_glitch_user"
+  | "error_user"
+  | "visual_user"
+  | "locked_out_user";

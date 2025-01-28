@@ -3,16 +3,16 @@ import { PetCategoryDto, PetDto, PetTagDto } from "../dto/pet-dto";
 export const givenPetCategory = (): PetCategoryDto => {
   return {
     id: 1,
-    name: "dogs"
-  }
-}
+    name: "dogs",
+  };
+};
 
 export const givenPetTag = (): PetTagDto => {
   return {
     id: 1,
-    name: "friendly"
-  }
-}
+    name: "friendly",
+  };
+};
 
 export const givenPet = (): PetDto => {
   return {
@@ -21,6 +21,6 @@ export const givenPet = (): PetDto => {
     name: "Bobby",
     photoUrls: ["https://example.com/bobby.jpg"],
     tags: [givenPetTag()],
-    status: "available"
-  }
-}
+    status: "available",
+  };
+};

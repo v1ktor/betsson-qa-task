@@ -18,10 +18,13 @@ export class LoginPage {
   }
 
   public async navigateTo(): Promise<void> {
-    await this.page.goto('/');
+    await this.page.goto("/");
   }
 
-  public async fillLoginForm(args: { username: LoginUser | string, password: string }): Promise<void> {
+  public async fillLoginForm(args: {
+    username: LoginUser | string;
+    password: string;
+  }): Promise<void> {
     await this.selectors.inputUsername.fill(args.username);
     await this.selectors.inputPassword.fill(args.password);
   }
@@ -36,10 +39,10 @@ export class LoginPage {
         name: "session-username",
         value: user,
         domain: "www.saucedemo.com",
-        path: "/"
-      }
-    ])
+        path: "/",
+      },
+    ]);
 
-    await this.page.goto('/inventory.html');
+    await this.page.goto("/inventory.html");
   }
 }

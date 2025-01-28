@@ -12,6 +12,8 @@ export class CartPageSelectors {
 
     this.itemInTheCart = page.locator("div[data-test='inventory-item']");
     this.itemTitle = page.locator("div[class='cart_item_label'] a");
-    this.itemDescription = page.locator("div[class='cart_item_label'] div[data-test='inventory-item-desc']");
+    this.itemDescription = page.locator(
+      "div[class='cart_item_label'] div[data-test='inventory-item-desc']",
+    );
   }
 }
