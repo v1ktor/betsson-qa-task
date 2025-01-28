@@ -32,18 +32,18 @@ export class CheckoutPageSelectors {
     this.buttonFinish = page.locator("button[data-test='finish']");
     this.buttonBackHome = page.locator("button[data-test='back-to-products']");
 
-    this.itemInTheCart = page.locator("div[class='cart_item']");
+    this.itemInTheCart = page.locator("div[data-test='inventory-item']");
     this.itemTitle = page.locator("div[class='cart_item_label'] a");
-    this.itemDescription = page.locator("div[class='cart_item_label'] div[class='inventory_item_desc']");
+    this.itemDescription = page.locator("div[class='cart_item_label'] div[data-test='inventory-item-desc']");
 
     this.labelPaymentInformationValue = page.locator("div.summary_value_label:nth-child(2)");
     this.labelShippingInformationValue = page.locator("div.summary_value_label:nth-child(4)");
-    this.labelPriceTotalValue = page.locator("div[class='summary_subtotal_label']");
-    this.labelPriceTotalTaxValue = page.locator("div[class='summary_tax_label']");
+    this.labelPriceTotalValue = page.locator("div[data-test='subtotal-label']");
+    this.labelPriceTotalTaxValue = page.locator("div[data-test='tax-label']");
     this.labelTotal = page.locator("div[data-test='total-label']");
 
-    this.textThankYou = page.locator("h2[class='complete-header']");
-    this.textComplete = page.locator("div[class='complete-text']");
-    this.textTitle = page.locator("span[class='title']");
+    this.textThankYou = page.locator("h2[data-test='complete-header']");
+    this.textComplete = page.locator("div[data-test='complete-text']");
+    this.textTitle = page.locator("span[data-test='title']");
   }
 }

@@ -10,8 +10,8 @@ export class CartPageSelectors {
   constructor(page: Page) {
     this.buttonCheckout = page.locator("button[data-test='checkout']");
 
-    this.itemInTheCart = page.locator("div[class='cart_item']");
+    this.itemInTheCart = page.locator("div[data-test='inventory-item']");
     this.itemTitle = page.locator("div[class='cart_item_label'] a");
-    this.itemDescription = page.locator("div[class='cart_item_label'] div[class='inventory_item_desc']");
+    this.itemDescription = page.locator("div[class='cart_item_label'] div[data-test='inventory-item-desc']");
   }
 }
