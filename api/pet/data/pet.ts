@@ -1,13 +1,13 @@
-import { PetCategory, PetDto, PetTag } from "../dto/pet-dto";
+import { PetCategoryDto, PetDto, PetTagDto } from "../dto/pet-dto";
 
-export const givenPetCategory = (): PetCategory => {
+export const givenPetCategory = (): PetCategoryDto => {
   return {
     id: 1,
     name: "dogs"
   }
 }
 
-export const givenPetTag = (): PetTag => {
+export const givenPetTag = (): PetTagDto => {
   return {
     id: 1,
     name: "friendly"

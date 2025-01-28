@@ -1,18 +1,18 @@
 export interface PetDto {
   id?: number;
-  category?: PetCategory;
+  category?: PetCategoryDto;
   name?: string;
   photoUrls?: string[];
-  tags?: PetTag[];
+  tags?: PetTagDto[];
   status?: PetStatus;
 }
 
-export interface PetCategory {
+export interface PetCategoryDto {
   id?: number;
   name?: string;
 }
 
-export interface PetTag {
+export interface PetTagDto {
   id?: number;
   name?: string;
 }

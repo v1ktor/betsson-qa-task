@@ -28,7 +28,7 @@ export default defineConfig<APIRequestOptions>({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://www.saucedemo.com/',
-    apiBaseURL: 'https://petstore.swagger.io/v2/',
+    apiBaseURL: 'https://petstore.swagger.io/',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
