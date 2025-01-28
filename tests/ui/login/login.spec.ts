@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { test } from "../../../ui/config/test-fixtures";
+import { test } from "../../../config/test-fixtures";
 import { LoginUser } from "../../../ui/pages/login/login-page.types";
 
 test.describe("LOGIN", () => {

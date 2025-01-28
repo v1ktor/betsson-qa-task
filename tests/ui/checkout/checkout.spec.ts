@@ -1,4 +1,4 @@
-import { test } from "../../../ui/config/test-fixtures";
+import { test } from "../../../config/test-fixtures";
 import { ProductKey } from "../../../ui/data/product";
 
 test.describe("CHECKOUT", () => {
