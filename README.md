@@ -1,10 +1,12 @@
 # betsson-qa-task
 
 # Technical Stack
+
 - [Playwright](https://playwright.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
 # How to run the tests and other scripts
+
 - `npm run test` - runs all the tests
 - `npm run test:ui` - runs only the UI tests
 - `npm run test:api` - runs only the API tests
@@ -56,16 +58,18 @@ The `config` folder contains test fixtures, which allows me to initialize POMs f
 whenever I need to make an API request.
 
 The `tests` folder contains the tests for both UI and API.
-The `tests/ui` folder contains tests for the `checkout` and `login` pages. For the `checkout` tests I set a cookie to bypass
+The `tests/ui` folder contains tests for the `checkout` and `login` flows. For the `checkout` tests I set a cookie to
+bypass
 the login page, so I can test the checkout flow directly.
 The `tests/api` folder contains tests for the `pet` API endpoints.
 
 While writing the tests I have found one issue with `saucedemo` application:
 
 - Calculation/Displaying bug. The price of some selected items is calculated with floating-point precision error - e.g.
-  9.99 + 49.99 is displayed as `$59.980000000000004` instead of `$59.98`
+  9.99 + 49.99 is displayed as `$59.980000000000004` instead of `$59.98` on the checkout page.
 
 I have also found one issue with the `petstore` application:
 
-- The API documentation states that name is required field and possible 405? (I think more suitable response code is
-  400) error should have be thrown. However, the API allows to create a pet without a name.
+- The API documentation states that pet's name is required field and possible 405? (I think more suitable response code
+  is
+    400) error should have be thrown. However, the API allows to create a pet without a name.
