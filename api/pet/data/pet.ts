@@ -14,9 +14,9 @@ export const givenPetTag = (): PetTagDto => {
   };
 };
 
-export const givenPet = (): PetDto => {
+export const givenPet = (id = 1): PetDto => {
   return {
-    id: 1,
+    id,
     category: givenPetCategory(),
     name: "Bobby",
     photoUrls: ["https://example.com/bobby.jpg"],

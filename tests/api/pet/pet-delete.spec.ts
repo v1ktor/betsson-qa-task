@@ -10,7 +10,11 @@ test.describe("PET DELETE", () => {
   let addedPet: PetDto;
 
   test.beforeEach(async ({ apiRequest }) => {
-    const response = await apiRequest.post(PET_URL, { data: givenPet() });
+    const randomId = Math.floor(Math.random() * 1000);
+
+    const response = await apiRequest.post(PET_URL, {
+      data: givenPet(randomId),
+    });
     addedPet = await response.json();
   });
 
