@@ -50,7 +50,7 @@ The `ui` folder contains the `data`, `pages` and `utils` folder:
 
 The `api` folder is also split into logical parts, in this case into `error` and `pet`. Each of them contains `dto` and
 `data` folders. The `dto` folder contains the types for the requests and responses, and the `data` folder contains the
-data that is needed for the tests.
+test data that is needed for the tests.
 
 The `config` folder contains test fixtures, which allows me to initialize POMs for UI tests and also use `apiBaseURL`
 whenever I need to make an API request.
