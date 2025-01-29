@@ -10,14 +10,14 @@
     "eslint:check": "npx eslint .",
     "eslint:fix": "npx eslint . --fix",
     "prettier:check": "npx prettier --check .",
-    "prettier:write": "npx prettier --write ."
+    "prettier:fix": "npx prettier --write ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/v1ktor/betsson-qa-task.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Viktor Kalinin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/v1ktor/betsson-qa-task/issues"
