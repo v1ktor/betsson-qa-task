@@ -17,41 +17,49 @@ test.describe("LOGIN", () => {
   });
 
   loginUsers.forEach((loginUser) => {
-    test(`user can login with valid ${loginUser.username} username`, async ({
-      page,
-      loginPage,
-    }) => {
-      await loginPage.fillLoginForm({ username: loginUser.username, password });
+    test(
+      `user can login with valid ${loginUser.username} username`,
+      { tag: "@ui" },
+      async ({ page, loginPage }) => {
+        await loginPage.fillLoginForm({
+          username: loginUser.username,
+          password,
+        });
+        await loginPage.clickLoginButton();
+
+        await expect(
+          page.locator(".header_secondary_container > .title"),
+        ).toHaveText("Products");
+      },
+    );
+  });
+
+  test(
+    "user will receive an error if he is locked out",
+    { tag: "@ui" },
+    async ({ loginPage }) => {
+      await loginPage.fillLoginForm({ username: "locked_out_user", password });
       await loginPage.clickLoginButton();
 
-      await expect(
-        page.locator(".header_secondary_container > .title"),
-      ).toHaveText("Products");
-    });
-  });
+      await loginPage.validator.validateErrorMessage(
+        "Epic sadface: Sorry, this user has been locked out.",
+      );
+    },
+  );
 
-  test("user will receive an error if he is locked out", async ({
-    loginPage,
-  }) => {
-    await loginPage.fillLoginForm({ username: "locked_out_user", password });
-    await loginPage.clickLoginButton();
+  test(
+    "user will receive an error if he enters invalid credentials",
+    { tag: "@ui" },
+    async ({ loginPage }) => {
+      await loginPage.fillLoginForm({
+        username: "invalid_user",
+        password: "invalid_password",
+      });
+      await loginPage.clickLoginButton();
 
-    await loginPage.validator.validateErrorMessage(
-      "Epic sadface: Sorry, this user has been locked out.",
-    );
-  });
-
-  test("user will receive an error if he enters invalid credentials", async ({
-    loginPage,
-  }) => {
-    await loginPage.fillLoginForm({
-      username: "invalid_user",
-      password: "invalid_password",
-    });
-    await loginPage.clickLoginButton();
-
-    await loginPage.validator.validateErrorMessage(
-      "Epic sadface: Username and password do not match any user in this service",
-    );
-  });
+      await loginPage.validator.validateErrorMessage(
+        "Epic sadface: Username and password do not match any user in this service",
+      );
+    },
+  );
 });

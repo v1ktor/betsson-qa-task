@@ -6,45 +6,46 @@ test.describe("CHECKOUT", () => {
     await loginPage.loginAs("standard_user");
   });
 
-  test("user can checkout the products", async ({
-    inventoryPage,
-    cartPage,
-    checkoutPage,
-  }) => {
-    const products: ProductKey[] = ["BACKPACK", "FLEECE_JACKET"];
+  test(
+    "user can checkout the products",
+    { tag: "@ui" },
+    async ({ inventoryPage, cartPage, checkoutPage }) => {
+      const products: ProductKey[] = ["BACKPACK", "FLEECE_JACKET"];
 
-    await inventoryPage.addProductsToCart(products);
-    await inventoryPage.goToCart();
+      await inventoryPage.addProductsToCart(products);
+      await inventoryPage.goToCart();
 
-    await cartPage.validator.validateProductsInCart(products);
-    await cartPage.goToCheckout();
+      await cartPage.validator.validateProductsInCart(products);
+      await cartPage.goToCheckout();
 
-    await checkoutPage.fillCheckoutForm({
-      firstName: "John",
-      lastName: "Doe",
-      postalCode: "12345",
-    });
-    await checkoutPage.clickContinue();
+      await checkoutPage.fillCheckoutForm({
+        firstName: "John",
+        lastName: "Doe",
+        postalCode: "12345",
+      });
+      await checkoutPage.clickContinue();
 
-    await checkoutPage.validator.validateProductsInCheckout(products);
-    await checkoutPage.validator.validatePaymentAndShippingInfo(products);
-    await checkoutPage.clickFinish();
+      await checkoutPage.validator.validateProductsInCheckout(products);
+      await checkoutPage.validator.validatePaymentAndShippingInfo(products);
+      await checkoutPage.clickFinish();
 
-    await checkoutPage.validator.validateCheckoutIsCompleted();
-  });
+      await checkoutPage.validator.validateCheckoutIsCompleted();
+    },
+  );
 
-  test("prices are calculated correctly", async ({
-    inventoryPage,
-    checkoutPage,
-  }) => {
-    const products: ProductKey[] = ["BIKE_LIGHT", "FLEECE_JACKET"];
+  test(
+    "prices are calculated correctly",
+    { tag: "@ui" },
+    async ({ inventoryPage, checkoutPage }) => {
+      const products: ProductKey[] = ["BIKE_LIGHT", "FLEECE_JACKET"];
 
-    await inventoryPage.addProductsToCart(products);
-    await inventoryPage.goToCart();
+      await inventoryPage.addProductsToCart(products);
+      await inventoryPage.goToCart();
 
-    await checkoutPage.navigateToCheckoutOverview();
+      await checkoutPage.navigateToCheckoutOverview();
 
-    await checkoutPage.validator.validateProductsInCheckout(products);
-    await checkoutPage.validator.validatePaymentAndShippingInfo(products);
-  });
+      await checkoutPage.validator.validateProductsInCheckout(products);
+      await checkoutPage.validator.validatePaymentAndShippingInfo(products);
+    },
+  );
 });
